@@ -1,51 +1,43 @@
 'use strict';
 
-// Generating random number
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
 
-// Variables
-let score = 20;
-let highScore = 0;
+const tileOpenModal = document.querySelectorAll('.show-modal');
+const modalImg = document.querySelector('.modal-image');
+let modalImgCaption = document.querySelector('.modal-caption');
 
-// Displaying the hint messages
-const displayHint = function (message) {
-  document.querySelector('.hint').textContent = message;
+// Functions
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 };
 
-// Check number button
-document.querySelector('.check').addEventListener('click', function () {
-  const guess = Number(document.querySelector('.guess').value);
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
 
-  if (!guess) {
-    displayHint('No number entered 🧐');
-  } else if (guess === secretNumber) {
-    displayHint("You've guessed it 🥳");
-    document.querySelector('.game-container').style.backgroundColor = '#60b347';
-    document.querySelector('.secret').textContent = secretNumber;
+// Event listeners
+for (let i = 0; i < tileOpenModal.length; i++) {
+  tileOpenModal[i].addEventListener('click', function () {
+    modalImg.src = this.src;
+    modalImgCaption.textContent = this.alt;
+    openModal();
+  });
+}
 
-    if (score > highScore) {
-      highScore = score;
-      document.querySelector('.highscore').textContent = highScore;
-    }
-  } else if (guess !== secretNumber) {
-    if (score > 1) {
-      displayHint(guess > secretNumber ? 'Too high 🔴' : 'Too low 🔵');
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      displayHint('GAME OVER 💀');
-      document.querySelector('.score').textContent = 0;
-    }
-  }
+btnCloseModal.addEventListener('click', function () {
+  closeModal();
 });
 
-// Reset game button
-document.querySelector('.reset').addEventListener('click', function () {
-  document.querySelector('.game-container').style.backgroundColor = '#f7f7f7';
-  displayHint('Start guessing 😎');
-  document.querySelector('.secret').textContent = '?';
-  document.querySelector('.guess').value = '';
-  score = 20;
-  document.querySelector('.score').textContent = score;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+overlay.addEventListener('click', function () {
+  closeModal();
+});
+
+document.addEventListener('keydown', function (pressed) {
+  if (pressed.key === 'Escape') {
+    closeModal();
+  }
 });

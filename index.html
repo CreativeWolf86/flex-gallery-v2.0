@@ -5,32 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Guess My Number v2.0</title>
+    <title>Flex Gallery Project v2.0</title>
 
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
-    <div class="game-container">
-      <header>
-        <h1>Guess My Number v2.0</h1>
-        <h3>( Between 1 and 20 )</h3>
-      </header>
-      <section class="game-grid">
-        <div class="hint">Start guessing 😎</div>
-        <input type="number" class="guess" placeholder="N" />
-        <div class="buttons">
-          <button class="btn check">Check Number</button>
-          <button class="btn reset">Reset Game</button>
-        </div>
-        <div class="secret">?</div>
-      </section>
-      <footer>
-        <p class="label-score">Score: <span class="score">20</span></p>
-        <p class="label-highscore">Highscore: <span class="highscore">0</span></p>
-        <p class="author">Made by CreativeWolf86</p>
-      </footer>
+      <h2 class="gallery-title">Welcome to Star Citizen</h2>
+      <p class="gallery-slogan">The universe is yours!</p>
+    </header>
+
+    <section class="tiles-container">
+      <img
+        class="show-modal"
+        src="./img/sc-pilot-sunset.jpg"
+        alt="Pilot and sunset"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-pilot-carrack-olisar-pad.jpg"
+        alt="Pilot boarding Carrack ship at Port Olisar"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-carrack-olisar-departure.jpg"
+        alt="Carrack ship departing from Port Olisar for expedition"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-carrack-hurston-expedition.jpg"
+        alt="Carrack ship flying in Hurston atmosphere during expedition"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-ursa-rover-moon-expedition.jpg"
+        alt="Ursa rover on moon expedition"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-ursa-rover-interior.jpg"
+        alt="Ursa rover interior"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-avenger-planet-flyby.jpg"
+        alt="Avenger during planet flyby"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-avenger-patrolling.jpg"
+        alt="Avenger patrolling asteroid belt"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-avenger-combat.jpg"
+        alt="Avenger firing weapons"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-vanguard-atmosphere-flight.jpg"
+        alt="Vanguard Harbinger during atmospheric flight"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-vanguard-patroling-asteroid-belt.jpg"
+        alt="Vanguard Harbinger patroling an asteroid belt"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-vanguard-firing-weapons.jpg"
+        alt="Vanguard Harbinger firing weapons"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-mole-survey.jpg"
+        alt="M.O.L.E. during planetary surface survey"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-mole-mining-op.jpg"
+        alt="M.O.L.E. during mining operation"
+      />
+      <img
+        class="show-modal"
+        src="./img/sc-mole-departure.jpg"
+        alt="M.O.L.E. departing from the planet surface"
+      />
+    </section>
+
+    <footer>
+      <h3 class="author">Made by CreativeWolf86</h3>
+    </footer>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+
+      <img class="modal-image" />
+
+      <div class="modal-caption"></div>
     </div>
+
+    <div class="overlay hidden"></div>
+
     <script src="./script.js"></script>
   </body>
 </html>
